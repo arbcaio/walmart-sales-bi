@@ -42,9 +42,11 @@ uv run analises/explorar.py
 | MarkDowns × vendas | Exploratória | Feito | Só cerca de 30% das loja-semanas têm o dado, e só a partir de nov/2011. MD1 e MD5 têm correlação de 0,55 e 0,60, mas dentro de cada loja isso some. Só o MD3 (+0,41) se mantém, porque acompanha o fim do ano |
 | Previsão de vendas | Série temporal com previsão | | Fica para o fim. A sazonalidade anual é forte, então a previsão nativa do Tableau ou um modelo sazonal simples resolve |
 
-## Abrir o `.twb` em outro computador
+## Fonte de dados do `.twb`
 
-O `.twb` guarda o caminho do CSV e do extract (`.hyper`) do PC do Victor. Em outra máquina, o Tableau Public avisa que não acha a fonte de dados. Para resolver, vá em **Data Source**, clique em editar a conexão, aponte para `dados/walmart_sales_analitico_br.csv` e gere o extract de novo.
+O `.twb` aponta para este repositório em `/Users/caiobraga/dev/walmart-sales-bi`: o CSV em `dados/` e o extract em `tableau/walmart_sales_analitico.hyper`. Se você clonar em outra pasta, vá em **Data Source**, edite a conexão para apontar para o `dados/` do seu clone e gere o extract de novo.
+
+Os prints das planilhas ficam em `docs/prints/`.
 
 ## Limitações
 

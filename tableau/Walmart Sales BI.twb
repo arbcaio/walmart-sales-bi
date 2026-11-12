@@ -25,7 +25,7 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='walmart_sales_analitico_br' name='textscan.0lsa4x51ee915p1fev9se1hd13ti'>
-            <connection class='textscan' directory='C:/Users/victo/OneDrive/Documentos/UFPE/Ciência da Computação/2026.2/GDI/walmart-sales-bi/data/processed' filename='walmart_sales_analitico_br.csv' password='' server='' />
+            <connection class='textscan' directory='/Users/caiobraga/dev/walmart-sales-bi/dados' filename='walmart_sales_analitico_br.csv' password='' server='' />
           </named-connection>
         </named-connections>
         <relation connection='textscan.0lsa4x51ee915p1fev9se1hd13ti' name='walmart_sales_analitico_br.csv' table='[walmart_sales_analitico_br#csv]' type='table'>
@@ -344,7 +344,7 @@
         <calculation class='tableau' formula="SUM([Weekly_Sales]) / AVG([Calculation_1911202600000003]) - 1" />
       </column>
       <extract count='-1' enabled='true' object-id='' units='records' user-specific='false'>
-        <connection access_mode='readonly' author-locale='pt_BR' class='hyper' dbname='C:/Users/victo/AppData/Local/Temp/TableauTemp/#TableauTemp_19i1uaw0atsy6o1acb9ef1cvmdtj.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='11/12/2026 11:04:01 AM' username='tableau_internal_user'>
+        <connection access_mode='readonly' author-locale='pt_BR' class='hyper' dbname='/Users/caiobraga/dev/walmart-sales-bi/tableau/walmart_sales_analitico.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='11/12/2026 11:04:01 AM' username='tableau_internal_user'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <metadata-records>
             <metadata-record class='column'>
