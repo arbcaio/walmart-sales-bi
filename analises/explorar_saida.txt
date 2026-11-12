@@ -1,0 +1,102 @@
+
+=== Base
+421,570 linhas | 45 lojas | 81 departamentos | 05/02/2010 a 26/10/2012 (143 semanas)
+Vendas totais: US$ 6.74 bi | linhas com venda negativa: 1,285
+
+=== Vendas por tipo de loja
+      lojas   total  media_semana_loja  participacao_%
+tipo                                                  
+A        22  4331.0             1376.7            64.3
+B        17  2000.7              823.0            29.7
+C         6   405.5              472.6             6.0
+
+=== Ranking das lojas (total, US$ mi)
+Top 5:
+Store  tipo  tamanho
+20     A     203742     301.4
+4      A     205863     299.5
+14     A     200898     289.0
+13     A     219622     286.5
+2      A     202307     275.4
+Bottom 5:
+Store  tipo  tamanho
+38     C     39690      55.2
+36     A     39910      53.4
+5      B     34875      45.5
+44     C     39910      43.3
+33     A     39690      37.2
+Maior/menor: 8.1x
+
+=== Departamentos (participação no faturamento)
+Dept
+92    7.2
+95    6.7
+38    5.8
+72    4.5
+90    4.3
+40    4.3
+2     4.2
+91    3.2
+13    2.9
+8     2.9
+Top 10 deptos = 46.0% do total; top 20 = 67.8%
+
+=== Semanas com e sem feriado (média por loja-semana, US$ mil)
+feriado
+False    1041.3
+True     1122.9
+Semanas de feriado (total da rede, US$ mi):
+Date
+2010-02-12    48.3
+2010-09-10    45.6
+2010-11-26    65.8
+2010-12-31    40.4
+2011-02-11    47.3
+2011-09-09    46.8
+2011-11-25    66.6
+2011-12-30    46.0
+2012-02-10    50.0
+2012-09-07    48.3
+Top 8 semanas da série:
+Date
+2010-12-24    80.9
+2011-12-23    77.0
+2011-11-25    66.6
+2010-11-26    65.8
+2010-12-17    61.8
+2011-12-16    60.1
+2010-12-10    55.7
+2011-12-09    55.6
+
+=== Sazonalidade mensal (média semanal da rede, US$ mi) — mapa de calor ano × mês
+mes     1     2     3     4     5     6     7     8     9     10    11    12
+ano                                                                         
+2010   NaN  47.6  45.5  46.3  46.7  48.1  46.5  46.9  44.3  43.4  50.7  57.8
+2011  40.9  46.6  44.8  45.3  45.4  47.4  46.0  47.1  44.2  45.8  52.5  57.6
+2012  42.2  48.0  46.3  47.2  47.2  48.1  46.9  47.4  45.2  46.1   NaN   NaN
+
+=== Correlações com as vendas por loja-semana (Pearson | Spearman)
+ tamanho: +0.81 | +0.84
+    temp: -0.06 | -0.07
+    comb: +0.01 | +0.03
+     cpi: -0.07 | -0.06
+  desemp: -0.11 | -0.06
+Mesmas variáveis, mas dentro de cada loja (tira o efeito do tamanho):
+    temp: -0.11
+    comb: -0.01
+     cpi: +0.06
+  desemp: -0.06
+
+=== MarkDowns (promoções)
+% de loja-semanas com valor preenchido:
+md1    35.4
+md2    25.4
+md3    31.8
+md4    30.5
+md5    35.7
+A partir de 11/11/2011 — correlação com vendas (Spearman):
+  MarkDown1: +0.55
+  MarkDown2: +0.11
+  MarkDown3: +0.42
+  MarkDown4: +0.35
+  MarkDown5: +0.60
