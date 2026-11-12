@@ -35,7 +35,7 @@ uv run analises/explorar.py
 | Ranking das lojas | Barras horizontais | | A loja 20 vende 8,1 vezes mais que a 33. O top 5 é todo de lojas tipo A grandes |
 | Vendas por departamento | Barras (Pareto) | | 10 dos 81 departamentos fazem 46% das vendas, e 20 fazem 68% |
 | Semanas de feriado | Barras comparativas | | Feriado tem média 8% maior, mas só por causa do Thanksgiving. Super Bowl e Labor Day ficam na média, e a semana de Natal marcada como feriado fica abaixo dela |
-| Sazonalidade mensal | Mapa de calor ano × mês | | Dezembro é cerca de 25% acima da média, janeiro é o pior mês, e o padrão se repete nos três anos |
+| Sazonalidade mensal | Mapa de calor ano × mês | | Dezembro é cerca de 22% acima da média, janeiro é o pior mês, e o padrão se repete nos três anos |
 | Tamanho da loja | Dispersão | | Correlação de 0,81: é o fator que mais explica as vendas |
 | Temperatura × vendas | Dispersão | | Quase nenhuma relação (−0,06) |
 | Indicadores econômicos × vendas | Dispersão | | Combustível, CPI e desemprego ficam com correlação perto de zero |
