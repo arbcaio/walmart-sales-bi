@@ -84,3 +84,10 @@ desde = sem[sem.Date >= "2011-11-11"]
 print("A partir de 11/11/2011 — correlação com vendas (Spearman):")
 for i in range(1, 6):
     print(f"  MarkDown{i}: {desde.vendas.corr(desde[f'md{i}'], method='spearman'):+.2f}")
+print("Dentro de cada loja (tira o efeito do tamanho), a partir de 11/11/2011:")
+d2 = desde.copy()
+d2["v"] = d2.groupby("Store").vendas.transform(lambda s: (s - s.mean()) / s.std())
+for i in range(1, 6):
+    c = f"md{i}"
+    d2["x"] = d2.groupby("Store")[c].transform(lambda s: (s - s.mean()) / s.std())
+    print(f"  MarkDown{i}: {d2.v.corr(d2.x):+.2f}")

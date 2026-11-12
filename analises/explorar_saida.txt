@@ -100,3 +100,9 @@ A partir de 11/11/2011 — correlação com vendas (Spearman):
   MarkDown3: +0.42
   MarkDown4: +0.35
   MarkDown5: +0.60
+Dentro de cada loja (tira o efeito do tamanho), a partir de 11/11/2011:
+  MarkDown1: -0.08
+  MarkDown2: -0.12
+  MarkDown3: +0.41
+  MarkDown4: -0.06
+  MarkDown5: +0.05
