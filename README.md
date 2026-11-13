@@ -36,7 +36,7 @@ uv run analises/explorar.py
 | Vendas por departamento | Barras (Pareto) | Feito | 10 dos 81 departamentos fazem 46% das vendas, e 20 fazem 68% |
 | Semanas de feriado | Barras comparativas | Feito | Feriado tem média 8% maior, mas só por causa do Thanksgiving. Super Bowl e Labor Day ficam na média, e a semana de Natal marcada como feriado fica abaixo dela |
 | Sazonalidade mensal | Mapa de calor ano × mês | Feito | Dezembro é cerca de 22% acima da média, janeiro é o pior mês, e o padrão se repete nos três anos |
-| Tamanho da loja | Dispersão | Feito | Correlação de 0,81: é o fator que mais explica as vendas |
+| Tamanho da loja | Dispersão (tamanho em m²) | Feito | Correlação de 0,81: é o fator que mais explica as vendas |
 | Temperatura × vendas | Dispersão | Feito | Quase nenhuma relação (−0,11 dentro de cada loja) |
 | Indicadores econômicos × vendas | Dispersão | Feito | Combustível, CPI e desemprego ficam com correlação perto de zero |
 | MarkDowns × vendas | Exploratória | Feito | Só cerca de 30% das loja-semanas têm o dado, e só a partir de nov/2011. MD1 e MD5 têm correlação de 0,55 e 0,60, mas dentro de cada loja isso some. Só o MD3 (+0,41) se mantém, porque acompanha o fim do ano |

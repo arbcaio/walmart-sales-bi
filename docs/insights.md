@@ -3,11 +3,13 @@
 Na mesma ordem do documento de insights do grupo, para colar lá. Os números vêm de `analises/explorar.py` e batem com as planilhas do Tableau.
 
 ## Ranking das lojas
+- O número de cada loja é o **ID** dela na base, não a posição no ranking. O gráfico ordena as 45 lojas por vendas.
 - A loja 20 (US$ 301 mi) vende **8,1 vezes** mais que a loja 33 (US$ 37 mi).
-- O top 5 (lojas 20, 4, 14, 13 e 2) é todo de lojas **tipo A** com mais de 200 mil pés².
-- Anomalia: as lojas 33 e 36 são classificadas como tipo A, mas têm cerca de 40 mil pés² e estão entre as que menos vendem. O "tipo" não é só uma faixa de tamanho.
+- O top 5 (lojas 20, 4, 14, 13 e 2) é todo de lojas **tipo A** com cerca de 19 mil m².
+- Anomalia: as lojas 33 e 36 são classificadas como tipo A, mas têm cerca de 3,7 mil m² e estão entre as que menos vendem. O "tipo" não é só uma faixa de tamanho.
 
 ## Vendas por departamento
+- O número é o **ID** do departamento. São 81 departamentos, com IDs que vão até 99.
 - O faturamento é concentrado: **10 dos 81 departamentos fazem 46%** das vendas, e 20 fazem 68%.
 - Os maiores são os departamentos 92 (7,2%), 95 (6,7%) e 38 (5,8%).
 - A base não diz o que cada departamento vende (são só números), e isso é uma limitação para a interpretação.
@@ -35,6 +37,7 @@ Média de vendas da rede inteira por semana:
 
 ## Vendas por tamanho da loja
 - O tamanho é o fator que mais se relaciona com as vendas: **correlação de 0,81**.
+- O tamanho está em **m²**, convertido de pés² (× 0,0929). A base não documenta a unidade do campo `Size`; pés² é a suposição que bate com o porte de um Walmart nos EUA.
 - No gráfico as três faixas aparecem bem separadas: C pequenas, B médias e A grandes.
 - Por isso as outras variáveis precisam ser comparadas **dentro de cada loja**, senão o tamanho domina tudo. É o que o campo "Vendas vs. média da loja" faz.
 

@@ -321,12 +321,12 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
-      <column aggregation='Sum' datatype='integer' name='[Dept]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption="Departamento (ID)" datatype='integer' name='[Dept]' role='dimension' type='ordinal' />
       <column caption='Fuel Price' datatype='real' name='[Fuel_Price]' role='measure' type='quantitative' />
       <column caption='Is Holiday' datatype='boolean' name='[IsHoliday]' role='dimension' type='nominal' />
       <column datatype='integer' name='[Month]' role='dimension' type='quantitative' />
       <column datatype='integer' name='[Quarter]' role='dimension' type='quantitative' />
-      <column aggregation='Sum' datatype='integer' name='[Store]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption="Loja (ID)" datatype='integer' name='[Store]' role='dimension' type='ordinal' />
       <column caption='Weekly Sales' datatype='real' name='[Weekly_Sales]' role='measure' type='quantitative' />
       <column caption='Year Month' datatype='string' name='[YearMonth]' role='dimension' type='nominal' />
       <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
@@ -342,6 +342,9 @@
       </column>
       <column caption="Vendas vs. média da loja" datatype='real' name='[Calculation_1911202600000004]' role='measure' type='quantitative'>
         <calculation class='tableau' formula="SUM([Weekly_Sales]) / AVG([Calculation_1911202600000003]) - 1" />
+      </column>
+      <column caption="Tamanho da loja (m²)" datatype='real' name='[Calculation_1911202600000005]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula="[Size] * 0.092903" />
       </column>
       <extract count='-1' enabled='true' object-id='' units='records' user-specific='false'>
         <connection access_mode='readonly' author-locale='pt_BR' class='hyper' dbname='/Users/caiobraga/dev/walmart-sales-bi/tableau/walmart_sales_analitico.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='11/12/2026 11:04:01 AM' username='tableau_internal_user'>
@@ -775,7 +778,7 @@
             <datasource caption='walmart_sales_analitico' name='federated.04q3kzx1gxqzh213ayewc0sa8rwq' />
           </datasources>
           <datasource-dependencies datasource='federated.04q3kzx1gxqzh213ayewc0sa8rwq'>
-            <column datatype='integer' name='[Store]' role='dimension' type='ordinal' />
+            <column caption="Loja (ID)" datatype='integer' name='[Store]' role='dimension' type='ordinal' />
             <column caption="Weekly Sales" datatype='real' name='[Weekly_Sales]' role='measure' type='quantitative' />
             <column datatype='string' name='[Type]' role='dimension' type='nominal' />
             <column-instance column='[Store]' derivation='None' name='[none:Store:ok]' pivot='key' type='ordinal' />
@@ -802,7 +805,7 @@
         <rows>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[none:Store:ok]</rows>
         <cols>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[sum:Weekly_Sales:qk]</cols>
       </table>
-      <simple-id uuid='{421FB3E9-587C-40ED-B2D7-91A60F6510E8}' />
+      <simple-id uuid='{1AB050BF-4AAD-4BF1-8E42-1CDF60950C9B}' />
     </worksheet>
     <worksheet name="Vendas por Departamento">
       <table>
@@ -811,7 +814,7 @@
             <datasource caption='walmart_sales_analitico' name='federated.04q3kzx1gxqzh213ayewc0sa8rwq' />
           </datasources>
           <datasource-dependencies datasource='federated.04q3kzx1gxqzh213ayewc0sa8rwq'>
-            <column datatype='integer' name='[Dept]' role='dimension' type='ordinal' />
+            <column caption="Departamento (ID)" datatype='integer' name='[Dept]' role='dimension' type='ordinal' />
             <column caption="Weekly Sales" datatype='real' name='[Weekly_Sales]' role='measure' type='quantitative' />
             <column-instance column='[Dept]' derivation='None' name='[none:Dept:ok]' pivot='key' type='ordinal' />
             <column-instance column='[Weekly_Sales]' derivation='Sum' name='[sum:Weekly_Sales:qk]' pivot='key' type='quantitative' />
@@ -833,7 +836,7 @@
         <rows>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[none:Dept:ok]</rows>
         <cols>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[sum:Weekly_Sales:qk]</cols>
       </table>
-      <simple-id uuid='{EE53DD39-1C5C-442D-8241-8451FCACCD86}' />
+      <simple-id uuid='{667745AD-6AB4-4105-9301-2F4E648C367D}' />
     </worksheet>
     <worksheet name="Vendas em Semanas de Feriado">
       <table>
@@ -880,7 +883,7 @@
         <rows>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[none:Calculation_1911202600000002:nk]</rows>
         <cols>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[usr:Calculation_1911202600000001:qk]</cols>
       </table>
-      <simple-id uuid='{217E1CBD-3945-4037-9D96-59E8AB6F26F9}' />
+      <simple-id uuid='{94890817-7FDE-4E5F-AD6E-CA3E4825C1FE}' />
     </worksheet>
     <worksheet name="Sazonalidade Mensal">
       <table>
@@ -922,7 +925,7 @@
         <rows>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[yr:Date:ok]</rows>
         <cols>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[mn:Date:ok]</cols>
       </table>
-      <simple-id uuid='{127B963F-30B9-4B27-B8CC-C2146A06873E}' />
+      <simple-id uuid='{30C61888-7108-4E89-A74D-7E3BA56DD2C5}' />
     </worksheet>
     <worksheet name="Vendas por Tamanho da Loja">
       <table>
@@ -932,11 +935,14 @@
           </datasources>
           <datasource-dependencies datasource='federated.04q3kzx1gxqzh213ayewc0sa8rwq'>
             <column caption="Weekly Sales" datatype='real' name='[Weekly_Sales]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[Size]' role='measure' type='quantitative' />
+            <column caption="Tamanho da loja (m²)" datatype='real' name='[Calculation_1911202600000005]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula="[Size] * 0.092903" />
+            </column>
             <column datatype='string' name='[Type]' role='dimension' type='nominal' />
-            <column datatype='integer' name='[Store]' role='dimension' type='ordinal' />
+            <column caption="Loja (ID)" datatype='integer' name='[Store]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[Size]' role='measure' type='quantitative' />
             <column-instance column='[Weekly_Sales]' derivation='Sum' name='[sum:Weekly_Sales:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Size]' derivation='Min' name='[min:Size:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1911202600000005]' derivation='Min' name='[min:Calculation_1911202600000005:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Type]' derivation='None' name='[none:Type:nk]' pivot='key' type='nominal' />
             <column-instance column='[Store]' derivation='None' name='[none:Store:ok]' pivot='key' type='ordinal' />
           </datasource-dependencies>
@@ -956,9 +962,9 @@
           </pane>
         </panes>
         <rows>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[sum:Weekly_Sales:qk]</rows>
-        <cols>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[min:Size:qk]</cols>
+        <cols>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[min:Calculation_1911202600000005:qk]</cols>
       </table>
-      <simple-id uuid='{3497BF76-4914-4456-A8F9-B8A4613879AA}' />
+      <simple-id uuid='{D8397B33-87B3-41C9-A39A-E009FD4D8239}' />
     </worksheet>
     <worksheet name="Temperatura x Vendas">
       <table>
@@ -972,7 +978,7 @@
             </column>
             <column datatype='real' name='[Temperature]' role='measure' type='quantitative' />
             <column datatype='string' name='[Type]' role='dimension' type='nominal' />
-            <column datatype='integer' name='[Store]' role='dimension' type='ordinal' />
+            <column caption="Loja (ID)" datatype='integer' name='[Store]' role='dimension' type='ordinal' />
             <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
             <column caption="Média semanal da loja" datatype='real' name='[Calculation_1911202600000003]' role='measure' type='quantitative'>
               <calculation class='tableau' formula="{ FIXED [Store] : SUM([Weekly_Sales]) / COUNTD([Date]) }" />
@@ -1003,7 +1009,7 @@
         <rows>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[usr:Calculation_1911202600000004:qk]</rows>
         <cols>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[avg:Temperature:qk]</cols>
       </table>
-      <simple-id uuid='{318BB882-A7BC-42CC-BA21-E93EAE220D9F}' />
+      <simple-id uuid='{487B7781-5E0A-4764-A7A3-463930AFFAD6}' />
     </worksheet>
     <worksheet name="Indicadores Econômicos x Vendas">
       <table>
@@ -1019,7 +1025,7 @@
             <column datatype='real' name='[CPI]' role='measure' type='quantitative' />
             <column datatype='real' name='[Unemployment]' role='measure' type='quantitative' />
             <column datatype='string' name='[Type]' role='dimension' type='nominal' />
-            <column datatype='integer' name='[Store]' role='dimension' type='ordinal' />
+            <column caption="Loja (ID)" datatype='integer' name='[Store]' role='dimension' type='ordinal' />
             <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
             <column caption="Média semanal da loja" datatype='real' name='[Calculation_1911202600000003]' role='measure' type='quantitative'>
               <calculation class='tableau' formula="{ FIXED [Store] : SUM([Weekly_Sales]) / COUNTD([Date]) }" />
@@ -1052,7 +1058,7 @@
         <rows>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[usr:Calculation_1911202600000004:qk]</rows>
         <cols>([federated.04q3kzx1gxqzh213ayewc0sa8rwq].[avg:Fuel_Price:qk] + [federated.04q3kzx1gxqzh213ayewc0sa8rwq].[avg:CPI:qk] + [federated.04q3kzx1gxqzh213ayewc0sa8rwq].[avg:Unemployment:qk])</cols>
       </table>
-      <simple-id uuid='{FE31E216-C199-4360-8A1E-472183742D25}' />
+      <simple-id uuid='{2466A9DC-58CB-4304-920E-C7ABA27A4C52}' />
     </worksheet>
     <worksheet name="MarkDowns x Vendas">
       <table>
@@ -1070,7 +1076,7 @@
             <column datatype='real' name='[MarkDown4]' role='measure' type='quantitative' />
             <column datatype='real' name='[MarkDown5]' role='measure' type='quantitative' />
             <column datatype='string' name='[Type]' role='dimension' type='nominal' />
-            <column datatype='integer' name='[Store]' role='dimension' type='ordinal' />
+            <column caption="Loja (ID)" datatype='integer' name='[Store]' role='dimension' type='ordinal' />
             <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
             <column caption="Média semanal da loja" datatype='real' name='[Calculation_1911202600000003]' role='measure' type='quantitative'>
               <calculation class='tableau' formula="{ FIXED [Store] : SUM([Weekly_Sales]) / COUNTD([Date]) }" />
@@ -1105,7 +1111,7 @@
         <rows>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[usr:Calculation_1911202600000004:qk]</rows>
         <cols>([federated.04q3kzx1gxqzh213ayewc0sa8rwq].[avg:MarkDown1:qk] + [federated.04q3kzx1gxqzh213ayewc0sa8rwq].[avg:MarkDown2:qk] + [federated.04q3kzx1gxqzh213ayewc0sa8rwq].[avg:MarkDown3:qk] + [federated.04q3kzx1gxqzh213ayewc0sa8rwq].[avg:MarkDown4:qk] + [federated.04q3kzx1gxqzh213ayewc0sa8rwq].[avg:MarkDown5:qk])</cols>
       </table>
-      <simple-id uuid='{257791A6-FE9D-45FA-B748-7D8D756BF6D9}' />
+      <simple-id uuid='{155E4EB6-7551-47BF-B696-FBF407F25E29}' />
     </worksheet>
   </worksheets>
   <windows saved-dpi-scale-factor='1.25' source-height='37'>
@@ -1213,7 +1219,10 @@
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{3CF2D6EF-4F92-4ACC-A32C-7F937AFFCE36}' />
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{934F54E5-F0D2-42EC-A60C-A64B851FF342}' />
     </window>
     <window class='worksheet' name="Vendas por Departamento">
       <cards>
@@ -1236,7 +1245,7 @@
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{DC42F4D5-77C1-4244-A893-AA167D34F66A}' />
+      <simple-id uuid='{3BA06D70-5F8A-41F5-9DB4-16C1B3D8FB0D}' />
     </window>
     <window class='worksheet' name="Vendas em Semanas de Feriado">
       <cards>
@@ -1259,7 +1268,7 @@
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{B74836DC-49B2-47F3-9C23-38D59EE8ED9B}' />
+      <simple-id uuid='{B39351A3-762C-4157-8298-B7320847F15A}' />
     </window>
     <window class='worksheet' name="Sazonalidade Mensal">
       <cards>
@@ -1282,7 +1291,7 @@
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{2A760E49-79D4-41C4-A49E-45AA97E3BA0A}' />
+      <simple-id uuid='{4CE4A69F-5DAC-4E1C-95B8-84D663BBFB72}' />
     </window>
     <window class='worksheet' name="Vendas por Tamanho da Loja">
       <cards>
@@ -1305,7 +1314,7 @@
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{C67957D9-DDEF-4958-95ED-255E6B08E267}' />
+      <simple-id uuid='{91A1236A-657C-4A89-B4F0-0164890CA958}' />
     </window>
     <window class='worksheet' name="Temperatura x Vendas">
       <cards>
@@ -1328,7 +1337,7 @@
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{5279B788-1BFC-484E-962A-D546D851DEFE}' />
+      <simple-id uuid='{026AA95E-26EA-439E-AB72-DBAD67BB384E}' />
     </window>
     <window class='worksheet' name="Indicadores Econômicos x Vendas">
       <cards>
@@ -1351,7 +1360,7 @@
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{A4C3961C-87FF-4471-86F8-CED20D92EAFC}' />
+      <simple-id uuid='{369059C3-4194-4093-884F-0A5CD3EC9CB8}' />
     </window>
     <window class='worksheet' name="MarkDowns x Vendas">
       <cards>
@@ -1374,7 +1383,7 @@
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{290FE291-CDD4-4921-BCDB-F92CF6A8F973}' />
+      <simple-id uuid='{40B1B048-0805-4B93-AA3C-D68375F7448A}' />
     </window>
   </windows>
   <thumbnails>

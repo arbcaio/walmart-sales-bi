@@ -1,7 +1,8 @@
 """Acrescenta as planilhas que faltam ao 'Walmart Sales BI.twb'.
 
-Segue o mesmo padrão das planilhas do Victor (mesma fonte de dados) e só insere
-o que ainda não existe, então pode rodar de novo sem duplicar nada.
+Segue o mesmo padrão das planilhas do Victor (mesma fonte de dados). As planilhas
+dele ficam intactas; as geradas aqui são recriadas a cada execução, então pode
+rodar de novo sem duplicar nada.
 
     python3 tableau/gerar_planilhas.py
 """
@@ -18,6 +19,7 @@ CALC_MEDIA = "Calculation_1911202600000001"        # média semanal (total ÷ n�
 CALC_FERIADO = "Calculation_1911202600000002"      # nome do feriado
 CALC_MEDIA_LOJA = "Calculation_1911202600000003"   # média semanal de cada loja (LOD)
 CALC_VS_LOJA = "Calculation_1911202600000004"      # semana vs. média da própria loja
+CALC_M2 = "Calculation_1911202600000005"           # tamanho da loja em m² (Size vem em pés²)
 
 CALCS = {
     CALC_MEDIA: ("Vendas médias por semana", "real", "measure", "quantitative",
@@ -34,13 +36,15 @@ CALCS = {
                       "{ FIXED [Store] : SUM([Weekly_Sales]) / COUNTD([Date]) }"),
     CALC_VS_LOJA: ("Vendas vs. média da loja", "real", "measure", "quantitative",
                    f"SUM([Weekly_Sales]) / AVG([{CALC_MEDIA_LOJA}]) - 1"),
+    CALC_M2: ("Tamanho da loja (m²)", "real", "measure", "quantitative",
+              "[Size] * 0.092903"),
 }
 
 # ---------------------------------------------------------------- colunas usadas
 COLS = {
     "Weekly_Sales": ("Weekly Sales", "real", "measure", "quantitative"),
-    "Store": (None, "integer", "dimension", "ordinal"),
-    "Dept": (None, "integer", "dimension", "ordinal"),
+    "Store": ("Loja (ID)", "integer", "dimension", "ordinal"),
+    "Dept": ("Departamento (ID)", "integer", "dimension", "ordinal"),
     "Type": (None, "string", "dimension", "nominal"),
     "Date": (None, "date", "dimension", "ordinal"),
     "IsHoliday": ("Is Holiday", "boolean", "dimension", "nominal"),
@@ -131,7 +135,8 @@ def worksheet(name, rows, cols, mark, color=None, text=None, lod=(), sort=None):
             + f"      </table>\n      <simple-id uuid='{{{str(uuid.uuid4()).upper()}}}' />\n    </worksheet>\n")
 
 
-def window(name):
+def window(name, fit=False):
+    zoom = "      <viewpoint>\n        <zoom type='entire-view' />\n      </viewpoint>\n" if fit else ""
     return (f"    <window class='worksheet' name={quoteattr(name)}>\n      <cards>\n"
             "        <edge name='left'>\n          <strip size='160'>\n            <card type='pages' />\n"
             "            <card type='filters' />\n            <card type='marks' />\n          </strip>\n"
@@ -139,6 +144,7 @@ def window(name):
             "            <card type='columns' />\n          </strip>\n          <strip size='2147483647'>\n"
             "            <card type='rows' />\n          </strip>\n          <strip size='2147483647'>\n"
             "            <card type='title' />\n          </strip>\n        </edge>\n      </cards>\n"
+            + zoom +
             f"      <simple-id uuid='{{{str(uuid.uuid4()).upper()}}}' />\n    </window>\n")
 
 
@@ -150,7 +156,7 @@ LOJA, TIPO_LOJA, DATA = "none:Store:ok", "none:Type:nk", "none:Date:qk"
 PLANILHAS = {
     "Ranking das Lojas": dict(
         rows=[LOJA], cols=[VENDAS], mark="Bar", color=TIPO_LOJA,
-        sort=(LOJA, VENDAS, "rows")),
+        sort=(LOJA, VENDAS, "rows"), fit=True),  # as 45 lojas cabem na tela, sem rolagem
     "Vendas por Departamento": dict(
         rows=["none:Dept:ok"], cols=[VENDAS], mark="Bar",
         sort=("none:Dept:ok", VENDAS, "rows")),
@@ -160,7 +166,7 @@ PLANILHAS = {
     "Sazonalidade Mensal": dict(
         rows=["yr:Date:ok"], cols=["mn:Date:ok"], mark="Square", color=MEDIA, text=MEDIA),
     "Vendas por Tamanho da Loja": dict(
-        rows=[VENDAS], cols=["min:Size:qk"], mark="Circle", color=TIPO_LOJA, lod=[LOJA]),
+        rows=[VENDAS], cols=[f"min:{CALC_M2}:qk"], mark="Circle", color=TIPO_LOJA, lod=[LOJA]),
     "Temperatura x Vendas": dict(
         rows=[VS_LOJA], cols=["avg:Temperature:qk"], mark="Circle", color=TIPO_LOJA,
         lod=[LOJA, DATA]),
@@ -182,12 +188,21 @@ def main():
     novos = "".join(column_xml(c, "      ") for c in CALCS if f"name='[{c}]'" not in xml)
     xml = xml.replace("      <extract ", novos + "      <extract ", 1)
 
+    # Store e Dept são identificadores, não posições: o nome do campo deixa isso claro
+    for campo in ("Store", "Dept"):
+        xml = xml.replace(f"<column aggregation='Sum' datatype='integer' name='[{campo}]' ",
+                          f"<column aggregation='Sum' caption={quoteattr(COLS[campo][0])} "
+                          f"datatype='integer' name='[{campo}]' ", 1)
+
     ws, wins = "", ""
     for nome, kw in PLANILHAS.items():
-        if f"<worksheet name={quoteattr(nome)}>" in xml:
-            continue
+        kw = dict(kw)
+        fit = kw.pop("fit", False)
+        n = re.escape(quoteattr(nome))
+        xml = re.sub(rf"    <worksheet name={n}>.*?</worksheet>\n", "", xml, flags=re.S)
+        xml = re.sub(rf"    <window class='worksheet' name={n}>.*?</window>\n", "", xml, flags=re.S)
         ws += worksheet(nome, **kw)
-        wins += window(nome)
+        wins += window(nome, fit)
     xml = xml.replace("  </worksheets>", ws + "  </worksheets>", 1)
     xml = xml.replace("  </windows>", wins + "  </windows>", 1)
     if crlf:  # o arquivo vem do Windows; mantém as quebras de linha dele
