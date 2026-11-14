@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Walmart Sales BI: gráficos e narrativa</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+  body { font: 10.5pt/1.45 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #1c2430; margin: 0; }
+  h1 { font-size: 20pt; margin: 0 0 4pt; color: #1f3b63; }
+  h2 { font-size: 14pt; margin: 0 0 6pt; color: #1f3b63; border-bottom: 1.5pt solid #1f3b63; padding-bottom: 3pt; }
+  h3 { font-size: 11.5pt; margin: 12pt 0 3pt; color: #1f3b63; }
+  p { margin: 0 0 6pt; }
+  ul, ol { margin: 0 0 6pt; padding-left: 16pt; }
+  li { margin-bottom: 2.5pt; }
+  .pagina { break-before: page; }
+  .grafico { break-inside: avoid; margin-bottom: 14pt; }
+  .grafico img { width: 100%; border: 0.75pt solid #c5ccd6; display: block; margin: 4pt 0 6pt; }
+  .sub { color: #5a6676; margin-bottom: 10pt; }
+  .fala { background: #f1f5fa; border-left: 3pt solid #1f3b63; padding: 6pt 9pt; margin: 4pt 0 8pt; break-inside: avoid; }
+  .fala b.tela { display: block; font-size: 9pt; color: #5a6676; font-weight: 600; margin-bottom: 2pt; }
+  table { border-collapse: collapse; width: 100%; margin: 4pt 0 8pt; font-size: 9.5pt; }
+  th, td { border: 0.75pt solid #c5ccd6; padding: 3pt 6pt; text-align: left; vertical-align: top; }
+  th { background: #e8eef6; }
+  .aviso { background: #fff6e0; border: 0.75pt solid #e2c36b; padding: 6pt 9pt; margin: 6pt 0; break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<h1>Walmart Sales BI: gráficos e narrativa</h1>
+<p class="sub">Projeto de GDIC, apresentação em 19/11/2026. Versão de 14/11/2026, para o grupo revisar.</p>
+
+<p><b>A base:</b> vendas semanais de 45 lojas e 81 departamentos do Walmart, de fevereiro de 2010 a outubro de 2012 (143 semanas, 421.570 linhas, US$ 6,74 bilhões), com tipo e tamanho da loja, temperatura, combustível, CPI, desemprego e promoções (MarkDowns).</p>
+
+<h3>O que tem neste documento</h3>
+<ol>
+  <li>Os três dashboards com filtros.</li>
+  <li>Cada gráfico em tamanho grande, com o que ele mostra.</li>
+  <li>As decisões que tomamos sobre os dados.</li>
+  <li>A narrativa para a apresentação.</li>
+  <li>O que mudou nos gráficos do Victor e o que fica de sugestão para ele.</li>
+</ol>
+
+<h3>O que mudou desde a última versão</h3>
+<ul>
+  <li>Um arquivo só para o grupo: <b>Walmart Sales BI.twbx</b>, com os dados dentro. Abre em qualquer computador, sem ajustar caminho.</li>
+  <li>Previsão de vendas feita.</li>
+  <li>Três dashboards com filtros de loja, tipo de loja, departamento e ano.</li>
+  <li>Linha de tendência e pontos mais transparentes nas dispersões.</li>
+  <li>Rótulos em português, com US$, °C e m².</li>
+  <li>Departamentos em Pareto, com o percentual acumulado.</li>
+  <li>Eixos dos indicadores econômicos ajustados para os pontos não ficarem espremidos.</li>
+  <li>"Sem relação" virou "não encontramos relação neste período".</li>
+</ul>
+
+<!-- ───────────── DASHBOARDS ───────────── -->
+<div class="pagina">
+<h2>1. Dashboards</h2>
+<p>Os quatro filtros do topo valem para todos os gráficos do dashboard ao mesmo tempo, e são os mesmos nos três.</p>
+
+<div class="grafico">
+<h3>Dashboard 1: Visão Geral das Vendas</h3>
+<img src="prints/10-dashboard-visao-geral.jpg">
+<p>Responde "quanto e quem vende". Os três gráficos de cima são os do Victor (KPI, tipo de loja e evolução semanal). Embaixo, o ranking das lojas e o Pareto dos departamentos, que têm rolagem dentro do dashboard.</p>
+</div>
+
+<div class="grafico">
+<h3>Dashboard 2: Sazonalidade e Feriados</h3>
+<img src="prints/11-dashboard-sazonalidade-e-feriados.jpg">
+<p>Responde "quando se vende". Feriados, mapa de calor por mês e ano, e a previsão.</p>
+</div>
+</div>
+
+<div class="pagina">
+<div class="grafico">
+<h3>Dashboard 3: Fatores Associados às Vendas</h3>
+<img src="prints/12-dashboard-fatores.jpg">
+<p>Responde "o que acompanha as vendas". Tamanho da loja, temperatura, indicadores econômicos e promoções. É análise exploratória: mostra associação, não causa.</p>
+</div>
+
+</div>
+
+<div class="pagina">
+<h2>2. Gráfico por gráfico</h2>
+<div class="grafico">
+<h3>Ranking das lojas</h3>
+<img src="prints/01-ranking-das-lojas.jpg">
+<ul>
+  <li>As 45 lojas ordenadas pelo total vendido. O número é o ID da loja, não a posição. Cor: azul tipo A, laranja tipo B, vermelho tipo C.</li>
+  <li>A loja 20 (US$ 301 mi) vende 8,1 vezes mais que a 33 (US$ 37 mi). O top 5 é todo tipo A, com cerca de 19 mil m².</li>
+  <li>As lojas 33 e 36 são tipo A, mas pequenas e no fim do ranking. O tipo não é só uma faixa de tamanho.</li>
+</ul>
+</div>
+</div>
+
+<div class="pagina">
+<div class="grafico">
+<h3>Vendas por departamento (Pareto)</h3>
+<img src="prints/02-vendas-por-departamento.jpg">
+<ul>
+  <li>À esquerda, o total de cada departamento. À direita, o percentual acumulado. O número é o ID do departamento. O print mostra os 31 maiores dos 81; no Tableau a lista rola.</li>
+  <li>10 departamentos fazem 46% das vendas, e 20 fazem 68%.</li>
+  <li>A base não diz o que cada departamento vende, e isso limita a interpretação.</li>
+</ul>
+</div>
+
+<div class="grafico">
+<h3>Vendas em semanas de feriado</h3>
+<img src="prints/03-semanas-de-feriado.jpg">
+<ul>
+  <li>Média de vendas da rede inteira por semana, em US$ milhões.</li>
+  <li>Só o Thanksgiving (Black Friday) fica muito acima de uma semana comum. Super Bowl e Labor Day ficam na média.</li>
+  <li>A maior semana do ano é a anterior ao Natal, que a base não marca como feriado. A semana que a base marca como Natal é a de 31/12, e ela vende menos que uma semana comum.</li>
+</ul>
+</div>
+</div>
+
+<div class="pagina">
+<div class="grafico">
+<h3>Sazonalidade mensal</h3>
+<img src="prints/04-sazonalidade-mensal.jpg">
+<ul>
+  <li>Média por semana em cada mês e ano, em US$ milhões. Quanto mais escuro, mais venda.</li>
+  <li>Dezembro fica cerca de 22% acima da média, novembro vem em seguida, e janeiro é o pior mês. O padrão se repete nos três anos.</li>
+  <li>As células em branco são meses que a base não tem (janeiro de 2010, novembro e dezembro de 2012).</li>
+</ul>
+</div>
+
+<div class="grafico">
+<h3>Previsão de vendas</h3>
+<img src="prints/09-previsao-de-vendas.jpg">
+<ul>
+  <li>Média semanal da rede em cada mês. A linha escura é o que aconteceu, a clara é a previsão do Tableau até dezembro de 2013, com faixa de 95%.</li>
+  <li>A previsão repete o padrão: cerca de US$ 58 mi por semana em dezembro de 2012, queda para cerca de 43 mi em janeiro e novo pico em dezembro de 2013.</li>
+  <li>Conferência fora do Tableau: prever fevereiro a outubro de 2012 repetindo o mesmo mês de 2011 erra em média 2,3%. A série é muito regular.</li>
+</ul>
+</div>
+</div>
+
+<div class="pagina">
+<div class="grafico">
+<h3>Vendas por tamanho da loja</h3>
+<img src="prints/05-tamanho-da-loja.jpg">
+<ul>
+  <li>Cada ponto é uma loja: tamanho em m² e total vendido. A linha é a tendência.</li>
+  <li>Correlação de 0,81. É o fator que mais acompanha as vendas.</li>
+  <li>Como o tamanho domina, os três gráficos seguintes comparam cada loja com a média dela mesma.</li>
+</ul>
+</div>
+
+<div class="grafico">
+<h3>Temperatura × vendas</h3>
+<img src="prints/06-temperatura.jpg">
+<ul>
+  <li>Cada ponto é uma loja em uma semana. Eixo vertical: quanto a loja vendeu acima ou abaixo da média dela (0% é uma semana normal).</li>
+  <li>A linha de tendência é quase horizontal (correlação −0,11). Não encontramos relação neste período.</li>
+  <li>Os pontos altos entre −5 e 10 °C são as semanas do fim do ano. É o calendário, não o frio.</li>
+</ul>
+</div>
+</div>
+
+<div class="pagina">
+<div class="grafico">
+<h3>Indicadores econômicos × vendas</h3>
+<img src="prints/07-indicadores-economicos.jpg">
+<ul>
+  <li>Combustível, CPI e desemprego, contra as vendas comparadas à média da própria loja.</li>
+  <li>As três linhas de tendência são horizontais (correlações entre −0,06 e +0,06). Não encontramos relação neste período.</li>
+  <li>Isso não prova que a economia não importa. Em 33 meses esses indicadores mudam devagar demais para explicar a variação de uma semana para outra.</li>
+</ul>
+</div>
+
+<div class="grafico">
+<h3>Promoções (MarkDowns) × vendas</h3>
+<img src="prints/08-markdowns.jpg">
+<ul>
+  <li>Valor de cada tipo de promoção contra as vendas comparadas à média da loja.</li>
+  <li>Só cerca de 30% das loja-semanas têm o dado, e só a partir de novembro de 2011.</li>
+  <li>Só o MarkDown3 sobe junto com as vendas (+0,41), porque ele se concentra no Thanksgiving e no Natal. Não dá para dizer que ele causa as vendas.</li>
+</ul>
+</div>
+</div>
+
+<!-- ───────────── DECISÕES ───────────── -->
+<div class="pagina">
+<h2>3. Decisões sobre os dados</h2>
+
+<h3>Nenhum dado foi inventado</h3>
+<p>A dúvida surgiu por causa da categoria "Semana antes do Natal (não marcada)". Ela é só um agrupamento das semanas que já existem na base, feito pela data: as semanas de 24/12/2010 e 23/12/2011. As vendas são as da base. O que é nosso é o rótulo, e por isso ele diz "não marcada": a coluna de feriado da base não marca essas semanas. Sem esse agrupamento, a maior semana do ano ficaria escondida dentro de "semana comum".</p>
+
+<h3>Anos incompletos</h3>
+<p>A base começa em fevereiro de 2010 e termina em outubro de 2012. Então 2010 não tem janeiro e 2012 não tem novembro nem dezembro. O que fizemos:</p>
+<ul>
+  <li>Toda comparação no tempo usa <b>média por semana</b>, nunca total do ano.</li>
+  <li>No mapa de calor, os meses sem dado ficam em branco, e o título diz o período da base.</li>
+  <li>Na apresentação, não comparar totais anuais. O total de 2012 é menor só porque faltam os dois meses mais fortes. Isso vale também para o KPI quando se usa o filtro de ano.</li>
+</ul>
+
+<h3>Outras</h3>
+<ul>
+  <li><b>Tamanho em m²:</b> a base não documenta a unidade do campo de tamanho. Supomos pés², que bate com o porte de um Walmart, e convertemos.</li>
+  <li><b>"Vendas vs. média da própria loja":</b> vendas da loja na semana divididas pela média semanal dela, menos 1. Serve para tirar o efeito do tamanho.</li>
+  <li><b>Correlações nos títulos:</b> foram calculadas com a base inteira e são texto fixo. Não mudam com os filtros.</li>
+  <li><b>Previsão mensal:</b> na série semanal o modelo do Tableau não achou a sazonalidade e a previsão saiu reta, sem o pico do Natal. Na série mensal ele pega.</li>
+  <li><b>Feriados têm poucas semanas:</b> cada categoria tem 2 ou 3 semanas. A média indica a ordem de grandeza, não é uma estimativa precisa.</li>
+  <li><b>Vendas negativas:</b> 1.285 linhas, provavelmente devoluções. Foram mantidas.</li>
+  <li><b>MarkDowns vazios:</b> mantidos vazios, sem preencher.</li>
+</ul>
+</div>
+
+<!-- ───────────── NARRATIVA ───────────── -->
+<div class="pagina">
+<h2>4. Narrativa para a apresentação</h2>
+<p>A ideia é contar como um cientista de dados contaria: uma pergunta, o que os dados permitem responder, o que eles não permitem, e o que se faz com isso. Dá uns 6 a 8 minutos. O texto está em tom de fala; adapta para o teu jeito.</p>
+<p><b>A história em uma frase:</b> o tamanho da loja explica quanto cada loja vende, o calendário explica quando a rede vende mais, e clima, economia e promoção não explicam quase nada neste período.</p>
+
+<div class="fala"><b class="tela">Abertura, sem gráfico</b>
+"A pergunta que a gente fez para essa base foi simples: o que explica as vendas do Walmart? São 45 lojas, 81 departamentos, 143 semanas, de fevereiro de 2010 a outubro de 2012, e junto com as vendas vêm clima, combustível, inflação, desemprego e promoções. A base convida a achar que esses fatores externos mexem nas vendas. A gente foi conferir."</div>
+
+<div class="fala"><b class="tela">Dashboard 1, parte de cima (gráficos do Victor)</b>
+"Primeiro, o tamanho do problema: 6,7 bilhões de dólares em menos de três anos. A linha semanal é quase reta, em torno de 47 milhões por semana, com dois picos que se repetem no fim de cada ano. Guardem esses picos, a gente volta neles. E as lojas tipo A, que são metade das lojas, fazem 64% das vendas."</div>
+
+<div class="fala"><b class="tela">Dashboard 1, parte de baixo (ranking e Pareto)</b>
+"As lojas são muito diferentes entre si: a que mais vende faz oito vezes o que faz a que menos vende. Nos departamentos é a mesma concentração: 10 dos 81 fazem quase metade do faturamento. Então a primeira coisa que um analista precisa responder é de onde vem essa diferença de escala."</div>
+
+<div class="fala"><b class="tela">Dashboard 3, tamanho da loja</b>
+"Vem do tamanho. Cada ponto aqui é uma loja, e quanto maior a loja, mais ela vende: correlação de 0,81. Isso é quase óbvio, mas tem uma consequência importante para a análise. Se eu comparar vendas brutas com qualquer outra variável, vou acabar medindo o tamanho de novo. Por isso, daqui para a frente, cada loja é comparada com a média dela mesma. Zero por cento é uma semana normal daquela loja."</div>
+
+<div class="fala"><b class="tela">Dashboard 2, mapa de calor</b>
+"Tirado o tamanho, o que faz as vendas variarem? O calendário. Dezembro vende uns 22% acima da média, novembro vem logo atrás, janeiro é a ressaca. E isso se repete igual nos três anos. Um detalhe: a base não tem janeiro de 2010 nem o fim de 2012, então a gente sempre compara média por semana, nunca total do ano."</div>
+
+<div class="fala"><b class="tela">Dashboard 2, feriados</b>
+"Aqui tem o achado de que eu mais gosto. A base tem uma coluna que marca semana de feriado, e a gente esperava que feriado vendesse mais. Só o Thanksgiving, por causa da Black Friday, vende. Super Bowl e Labor Day são semanas comuns. E a semana que a base chama de Natal é a de 31 de dezembro, depois do Natal, e vende menos que uma semana comum. A maior semana do ano, a que vem antes do Natal, com 79 milhões, nem está marcada. A gente separou essa semana pela data para ela aparecer. A lição é não confiar no rótulo de uma coluna sem olhar o que tem dentro."</div>
+
+<div class="fala"><b class="tela">Dashboard 3, temperatura, indicadores e MarkDowns</b>
+"E os fatores externos? Temperatura, combustível, inflação, desemprego: as linhas de tendência são praticamente horizontais. A gente não encontrou relação neste período. Não quer dizer que a economia não afete o varejo. Quer dizer que em 33 meses esses indicadores mudam devagar demais para explicar por que uma semana vende mais que a outra. Nas promoções, só uma delas sobe junto com as vendas, o MarkDown3, e ela acontece justamente no Thanksgiving e no Natal. Então pode ser a promoção puxando a venda, ou só a época do ano. Com esses dados não dá para separar, e a gente prefere dizer isso a vender uma conclusão que os dados não sustentam."</div>
+
+<div class="fala"><b class="tela">Dashboard 2, previsão</b>
+"Se o calendário é o que manda e ele se repete, dá para prever. A previsão do Tableau projeta o mesmo desenho para 2013: pico perto de 58 milhões por semana em dezembro, queda em janeiro. Para ter uma ideia do erro, a gente fez um teste simples: prever 2012 repetindo 2011 erra uns 2% em média. O limite é que são menos de três anos de história, então a previsão supõe que nada muda."</div>
+
+<div class="fala"><b class="tela">Fechamento, de volta ao dashboard 1 mexendo num filtro</b>
+"Resumindo: o tamanho da loja explica a escala, o calendário explica a variação, e o resto, neste período, não explica quase nada. Na prática, quem planeja estoque e equipe dessa rede deveria olhar para o calendário e para o porte de cada loja, e a semana antes do Natal merece tanta atenção quanto a Black Friday. E tudo isso dá para explorar nos dashboards: escolhendo uma loja ou um departamento aqui nos filtros, todos os gráficos se atualizam."</div>
+
+<h3>Perguntas que podem vir, e respostas curtas</h3>
+<table>
+  <tr><th>Pergunta</th><th>Resposta</th></tr>
+  <tr><td>Vocês criaram a categoria "semana antes do Natal"?</td><td>O rótulo sim, os dados não. São as semanas reais de 24/12/2010 e 23/12/2011, agrupadas pela data.</td></tr>
+  <tr><td>Por que não comparar os anos pelo total?</td><td>2010 não tem janeiro e 2012 não tem novembro e dezembro. O total enganaria. Por isso média por semana.</td></tr>
+  <tr><td>Correlação 0,81 quer dizer que aumentar a loja aumenta a venda?</td><td>Não necessariamente. Loja grande costuma ficar em lugar de mais movimento. É associação.</td></tr>
+  <tr><td>Então promoção não funciona?</td><td>Não dá para dizer. O dado só existe a partir de novembro de 2011 e em 30% das semanas, e as promoções grandes caem nas mesmas semanas do pico.</td></tr>
+  <tr><td>Por que a previsão é mensal?</td><td>Na série semanal o modelo do Tableau não capturou o pico do Natal. Na mensal, sim.</td></tr>
+  <tr><td>O que são os departamentos 92, 95, 38?</td><td>A base só traz o número. É uma limitação.</td></tr>
+  <tr><td>O que é "vendas vs. média da própria loja"?</td><td>Quanto a loja vendeu na semana em relação à média semanal dela. +20% é uma semana 20% melhor que o normal daquela loja.</td></tr>
+</table>
+</div>
+
+<!-- ───────────── VICTOR ───────────── -->
+<div class="pagina">
+<h2>5. Gráficos do Victor: o que mudou e o que fica de sugestão</h2>
+<p>São três planilhas: <b>KPI - Vendas Totais</b>, <b>Evolução Semanal das Vendas</b> e <b>Vendas por Tipo de Loja</b>.</p>
+
+<h3>O que foi alterado nelas</h3>
+<div class="aviso">
+<p><b>Uma coisa só:</b> cada uma das três recebeu os quatro filtros compartilhados (loja, tipo de loja, departamento e ano), todos em "tudo selecionado". Sem isso, os filtros do dashboard não valeriam para elas.</p>
+<p style="margin:0">A aparência não mudou: mesmos campos, mesmo tipo de gráfico, mesmas cores, mesmos títulos e mesmos números. O arquivo original dele está guardado sem alteração em <code>tableau/original-victor.twb</code>.</p>
+</div>
+<p>Além disso, as três foram colocadas no dashboard "Visão Geral das Vendas", ao lado do ranking e do Pareto.</p>
+
+<h3>Sugestões para o Victor decidir (nada disso foi feito)</h3>
+<table>
+  <tr><th>Planilha</th><th>Sugestão</th><th>Por quê</th></tr>
+  <tr><td>KPI - Vendas Totais</td><td>Mostrar como "US$ 6,74 bi", com fonte grande e centralizada</td><td>Hoje aparece 6.737.218.987, pequeno e no canto direito, sem moeda. É o número de abertura da apresentação.</td></tr>
+  <tr><td>Evolução Semanal</td><td>Trocar os títulos dos eixos "Weekly Sales" e "Date" por "Vendas semanais (US$)" e "Semana"</td><td>Os outros gráficos estão em português e com unidade.</td></tr>
+  <tr><td>Evolução Semanal</td><td>Anotar os picos (Thanksgiving e semana antes do Natal)</td><td>É o gancho da narrativa: os picos aparecem aqui e são explicados no dashboard 2.</td></tr>
+  <tr><td>Vendas por Tipo de Loja</td><td>Trocar "Type" por "Tipo de loja" e "Weekly Sales" por "Vendas no período (US$)"</td><td>Mesmo motivo. O eixo hoje mostra 0G a 4G, sem dizer que é dólar.</td></tr>
+  <tr><td>Vendas por Tipo de Loja</td><td>Usar as cores azul, laranja e vermelho para A, B e C, e mostrar o percentual na barra (64%, 30%, 6%)</td><td>São as mesmas cores dos outros gráficos, e o percentual é o insight.</td></tr>
+</table>
+<p>Se ele topar, dá para aplicar em poucos minutos, por ele no Tableau ou pelo gerador do repositório.</p>
+</div>
+
+</body>
+</html>

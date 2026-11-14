@@ -1,0 +1,1075 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20263.26.1022.1645                               -->
+<workbook _.fcp.WorkbookFingerprinting.true...author-id='c6ec4bb8b8a162e9815ffffc4d51542157ed9cab515f6bec29884e16df4ee8dc' _.fcp.WorkbookFingerprinting.true...creator-author-id='c6ec4bb8b8a162e9815ffffc4d51542157ed9cab515f6bec29884e16df4ee8dc' _.fcp.WorkbookFingerprinting.true...creator-license-type='public' _.fcp.WorkbookFingerprinting.true...creator-machine-id='c6ec4bb8b8a162e9815ffffc4d51542157ed9cab515f6bec29884e16df4ee8dc' _.fcp.WorkbookFingerprinting.true...license-type='public' _.fcp.WorkbookFingerprinting.true...machine-id='c6ec4bb8b8a162e9815ffffc4d51542157ed9cab515f6bec29884e16df4ee8dc' locale='pt_BR' original-version='18.1' source-build='2026.3.0 (20263.26.1022.1645)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <_.fcp.WorkbookFingerprinting.true...WorkbookFingerprinting />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='walmart_sales_analitico' inline='true' name='federated.04q3kzx1gxqzh213ayewc0sa8rwq' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='walmart_sales_analitico_br' name='textscan.0lsa4x51ee915p1fev9se1hd13ti'>
+            <connection class='textscan' directory='C:/Users/victo/OneDrive/Documentos/UFPE/Ciência da Computação/2026.2/GDI/walmart-sales-bi/data/processed' filename='walmart_sales_analitico_br.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0lsa4x51ee915p1fev9se1hd13ti' name='walmart_sales_analitico_br.csv' table='[walmart_sales_analitico_br#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='pt_BR' separator=';'>
+            <column datatype='integer' name='Store' ordinal='0' />
+            <column datatype='integer' name='Dept' ordinal='1' />
+            <column datatype='date' name='Date' ordinal='2' />
+            <column datatype='real' name='Weekly_Sales' ordinal='3' />
+            <column datatype='boolean' name='IsHoliday' ordinal='4' />
+            <column datatype='real' name='Temperature' ordinal='5' />
+            <column datatype='real' name='Fuel_Price' ordinal='6' />
+            <column datatype='real' name='MarkDown1' ordinal='7' />
+            <column datatype='real' name='MarkDown2' ordinal='8' />
+            <column datatype='real' name='MarkDown3' ordinal='9' />
+            <column datatype='real' name='MarkDown4' ordinal='10' />
+            <column datatype='real' name='MarkDown5' ordinal='11' />
+            <column datatype='real' name='CPI' ordinal='12' />
+            <column datatype='real' name='Unemployment' ordinal='13' />
+            <column datatype='string' name='Type' ordinal='14' />
+            <column datatype='integer' name='Size' ordinal='15' />
+            <column datatype='integer' name='Year' ordinal='16' />
+            <column datatype='integer' name='Month' ordinal='17' />
+            <column datatype='integer' name='Quarter' ordinal='18' />
+            <column datatype='string' name='YearMonth' ordinal='19' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;pt_BR&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;R$&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;;&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;pt_BR&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Store</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Store]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Store</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Dept</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Dept]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Dept</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Weekly_Sales</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Weekly_Sales]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Weekly_Sales</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IsHoliday</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[IsHoliday]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>IsHoliday</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Temperature</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Temperature]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Temperature</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Fuel_Price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Fuel_Price]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Fuel_Price</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MarkDown1</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[MarkDown1]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>MarkDown1</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MarkDown2</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[MarkDown2]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>MarkDown2</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MarkDown3</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[MarkDown3]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>MarkDown3</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MarkDown4</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[MarkDown4]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>MarkDown4</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MarkDown5</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[MarkDown5]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>MarkDown5</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CPI</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[CPI]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>CPI</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Unemployment</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Unemployment]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Unemployment</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Type]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Type</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Size</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Size]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Size</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Month]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Month</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Quarter</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Quarter]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>Quarter</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>YearMonth</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[YearMonth]</local-name>
+            <parent-name>[walmart_sales_analitico_br.csv]</parent-name>
+            <remote-alias>YearMonth</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LPT_RBR' />
+            <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Sum' datatype='integer' name='[Dept]' role='dimension' type='ordinal' />
+      <column caption='Fuel Price' datatype='real' name='[Fuel_Price]' role='measure' type='quantitative' />
+      <column caption='Is Holiday' datatype='boolean' name='[IsHoliday]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Month]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[Quarter]' role='dimension' type='quantitative' />
+      <column aggregation='Sum' datatype='integer' name='[Store]' role='dimension' type='ordinal' />
+      <column caption='Weekly Sales' datatype='real' name='[Weekly_Sales]' role='measure' type='quantitative' />
+      <column caption='Year Month' datatype='string' name='[YearMonth]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+      <column caption='walmart_sales_analitico_br.csv' datatype='table' name='[__tableau_internal_object_id__].[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]' role='measure' type='quantitative' />
+      <extract count='-1' enabled='true' object-id='' units='records' user-specific='false'>
+        <connection access_mode='readonly' author-locale='pt_BR' class='hyper' dbname='C:/Users/victo/AppData/Local/Temp/TableauTemp/#TableauTemp_19i1uaw0atsy6o1acb9ef1cvmdtj.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='11/12/2026 11:04:01 AM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Store</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Store]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Store</remote-alias>
+              <ordinal>0</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>45</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Dept</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Dept]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Dept</remote-alias>
+              <ordinal>1</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>113</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Date</remote-alias>
+              <ordinal>2</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>143</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Weekly_Sales</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Weekly_Sales]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Weekly_Sales</remote-alias>
+              <ordinal>3</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>324276</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>IsHoliday</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[IsHoliday]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>IsHoliday</remote-alias>
+              <ordinal>4</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Temperature</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Temperature]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Temperature</remote-alias>
+              <ordinal>5</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>17505</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Fuel_Price</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Fuel_Price]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Fuel_Price</remote-alias>
+              <ordinal>6</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3124</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>MarkDown1</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[MarkDown1]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>MarkDown1</remote-alias>
+              <ordinal>7</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>17027</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>MarkDown2</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[MarkDown2]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>MarkDown2</remote-alias>
+              <ordinal>8</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10180</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>MarkDown3</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[MarkDown3]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>MarkDown3</remote-alias>
+              <ordinal>9</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>11200</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>MarkDown4</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[MarkDown4]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>MarkDown4</remote-alias>
+              <ordinal>10</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>16277</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>MarkDown5</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[MarkDown5]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>MarkDown5</remote-alias>
+              <ordinal>11</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>17281</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>CPI</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[CPI]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>CPI</remote-alias>
+              <ordinal>12</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>9565</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Unemployment</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Unemployment]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Unemployment</remote-alias>
+              <ordinal>13</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>577</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Type]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Type</remote-alias>
+              <ordinal>14</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPT_RBR' />
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Size</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Size]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Size</remote-alias>
+              <ordinal>15</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>40</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year</remote-alias>
+              <ordinal>16</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Month</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Month]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Month</remote-alias>
+              <ordinal>17</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Quarter</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Quarter]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Quarter</remote-alias>
+              <ordinal>18</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>YearMonth</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[YearMonth]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>YearMonth</remote-alias>
+              <ordinal>19</ordinal>
+              <family>walmart_sales_analitico_br.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>33</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LPT_RBR' />
+              <object-id>[walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Brasil&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='walmart_sales_analitico_br.csv' id='walmart_sales_analitico_br.csv_147B7176C0C8441FB97E8E9A5A04EA08'>
+            <properties context=''>
+              <relation connection='textscan.0lsa4x51ee915p1fev9se1hd13ti' name='walmart_sales_analitico_br.csv' table='[walmart_sales_analitico_br#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='pt_BR' separator=';'>
+                  <column datatype='integer' name='Store' ordinal='0' />
+                  <column datatype='integer' name='Dept' ordinal='1' />
+                  <column datatype='date' name='Date' ordinal='2' />
+                  <column datatype='real' name='Weekly_Sales' ordinal='3' />
+                  <column datatype='boolean' name='IsHoliday' ordinal='4' />
+                  <column datatype='real' name='Temperature' ordinal='5' />
+                  <column datatype='real' name='Fuel_Price' ordinal='6' />
+                  <column datatype='real' name='MarkDown1' ordinal='7' />
+                  <column datatype='real' name='MarkDown2' ordinal='8' />
+                  <column datatype='real' name='MarkDown3' ordinal='9' />
+                  <column datatype='real' name='MarkDown4' ordinal='10' />
+                  <column datatype='real' name='MarkDown5' ordinal='11' />
+                  <column datatype='real' name='CPI' ordinal='12' />
+                  <column datatype='real' name='Unemployment' ordinal='13' />
+                  <column datatype='string' name='Type' ordinal='14' />
+                  <column datatype='integer' name='Size' ordinal='15' />
+                  <column datatype='integer' name='Year' ordinal='16' />
+                  <column datatype='integer' name='Month' ordinal='17' />
+                  <column datatype='integer' name='Quarter' ordinal='18' />
+                  <column datatype='string' name='YearMonth' ordinal='19' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Evolução Semanal das Vendas'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='walmart_sales_analitico' name='federated.04q3kzx1gxqzh213ayewc0sa8rwq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.04q3kzx1gxqzh213ayewc0sa8rwq'>
+            <column datatype='date' name='[Date]' role='dimension' type='ordinal' />
+            <column caption='Weekly Sales' datatype='real' name='[Weekly_Sales]' role='measure' type='quantitative' />
+            <column-instance column='[Date]' derivation='None' name='[none:Date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Weekly_Sales]' derivation='Sum' name='[sum:Weekly_Sales:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[sum:Weekly_Sales:qk]</rows>
+        <cols>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[none:Date:qk]</cols>
+      </table>
+      <simple-id uuid='{A2275B98-CD57-4095-9EF8-546211970A43}' />
+    </worksheet>
+    <worksheet name='KPI - Vendas Totais'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='walmart_sales_analitico' name='federated.04q3kzx1gxqzh213ayewc0sa8rwq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.04q3kzx1gxqzh213ayewc0sa8rwq'>
+            <column caption='Weekly Sales' datatype='real' name='[Weekly_Sales]' role='measure' type='quantitative' />
+            <column-instance column='[Weekly_Sales]' derivation='Sum' name='[sum:Weekly_Sales:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[sum:Weekly_Sales:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{59091765-D5E5-4D59-AE14-DF143C97EF9C}' />
+    </worksheet>
+    <worksheet name='Vendas por Tipo de Loja'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='walmart_sales_analitico' name='federated.04q3kzx1gxqzh213ayewc0sa8rwq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.04q3kzx1gxqzh213ayewc0sa8rwq'>
+            <column datatype='string' name='[Type]' role='dimension' type='nominal' />
+            <column caption='Weekly Sales' datatype='real' name='[Weekly_Sales]' role='measure' type='quantitative' />
+            <column-instance column='[Type]' derivation='None' name='[none:Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Weekly_Sales]' derivation='Sum' name='[sum:Weekly_Sales:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[none:Type:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[sum:Weekly_Sales:qk]' shelf='rows' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+          </pane>
+        </panes>
+        <rows>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[none:Type:nk]</rows>
+        <cols>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[sum:Weekly_Sales:qk]</cols>
+      </table>
+      <simple-id uuid='{66114096-91B6-4C98-AD06-C744BCAB41AA}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='KPI - Vendas Totais'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{5B0CB952-3B64-44D6-8836-3422A4CFE26B}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Evolução Semanal das Vendas'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[yr:Date:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{975154C0-E6AB-4640-9BA7-5DD402F7F3FD}' />
+    </window>
+    <window class='worksheet' name='Vendas por Tipo de Loja'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.04q3kzx1gxqzh213ayewc0sa8rwq].[none:Type:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{DF09474F-B4B0-4F35-90DC-40C7C14C5611}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Evolução Semanal das Vendas' width='192'>
+      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
+      lO4+AAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='25' name='KPI - Vendas Totais' width='124'>
+      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
+      AABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='147' name='Vendas por Tipo de Loja' width='192'>
+      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
+      YII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
